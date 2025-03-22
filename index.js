@@ -64,5 +64,10 @@ function remove(root, value) {
   return root;
 }
 
+// to erase a tree completely 
+function eraseTree (root) {
+  root = null
+}
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(remove(tree, 15));
+console.log(eraseTree(tree));
