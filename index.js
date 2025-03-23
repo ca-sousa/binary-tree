@@ -131,10 +131,25 @@ function invertTree(root) {
   return root; 
 }
 
+// tree crossing
+// in-order: left -> node -> right
+function inOrder(root, result = []) {
+  if (root === null) return null;
+  inOrder(root.left, result);
+  result.push(root.value);
+  inOrder(root.right, result);
+  return result
+}
 
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
 console.log(tree)
-console.log(invertTree(tree));
+console.log(inOrder(tree));
+// pre-order: node -> left -> right
+
+// post-order: left -> right -> node
+
+// by level
+
 
 
 
