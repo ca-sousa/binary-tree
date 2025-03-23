@@ -159,17 +159,23 @@ function postOrder(root, result = []) {
   return result
 }
 
-const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(tree)
-console.log(postOrder(tree));
-
-
 // by level
+function byLevelOrder(root) {
+  if (root === null) return null;
 
+  const result = [];
+  const temp = [root];
 
+  while (temp.length > 0) {
+    const current = temp.shift();
+    result.push(current.value);
 
+    if (current.left) temp.push(current.left);
+    if (current.right) temp.push(current.right);
+  }
 
-// travesse de um elemento - BFS
+  return result
+}
 
-
-
+const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
+console.log(byLevelOrder(tree));
