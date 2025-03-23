@@ -116,8 +116,25 @@ function searchElementInTree(root, value) {
   return null
 }
 
+
+// invert tree
+function invertTree(root) {
+  if (root === null) return null;
+
+  const temp = root.left;
+  root.left = root.right;
+  root.right = temp;
+
+  invertTree(root.left);
+  invertTree(root.right);
+
+  return root; 
+}
+
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(searchElementInTree(tree, 12));
+console.log(tree)
+console.log(invertTree(tree));
 
 
 
