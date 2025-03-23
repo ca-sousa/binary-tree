@@ -104,8 +104,20 @@ function elementExistsInTree(root, value) {
   return root.value === value || inLeft || inRight
 }
 
+// search an element on a tree
+function searchElementInTree(root, value) {
+  if (root === null) return null;
+  const inLeft = searchElementInTree(root.left, value)
+  const inRight = searchElementInTree(root.right, value)
+  if ( root.value === value || inLeft || inRight ) {
+    return value
+  }
+
+  return null
+}
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(elementExistsInTree(tree, 12));
+console.log(searchElementInTree(tree, 12));
 
 
 
