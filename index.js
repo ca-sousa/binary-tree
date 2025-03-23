@@ -65,7 +65,7 @@ function remove(root, value) {
 }
 
 // to erase a tree completely 
-function eraseTree(root) {
+function treeErase(root) {
   root = null
 }
 
@@ -87,8 +87,16 @@ function treeMax(root) {
   const rightMax = treeMax(root.right)
   return Math.max(root.value, leftMax, rightMax)
 }
+
+// get the tree height
+function treeHeight(root) {
+  if (root === null) return 0;
+  const leftHeight = treeHeight(root.left)
+  const rightHeight = treeHeight(root.right)
+  return 1 + Math.max(leftHeight, rightHeight)
+}
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(treeMax(tree));
+console.log(treeHeight(tree));
 
 // search an element from a tree
 
@@ -98,4 +106,4 @@ console.log(treeMax(tree));
 
 // nível da árvore
 
-// tamanho dela inteira 
+
