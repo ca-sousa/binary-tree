@@ -70,16 +70,25 @@ function eraseTree(root) {
 }
 
 // sum all tree elements
-function sumTree(root) {
+function treeSum(root) {
   if (root === null) return 0;
 
-  const leftSum = sumTree(root.left)
-  const rightSum = sumTree(root.right)
+  const leftSum = treeSum(root.left)
+  const rightSum = treeSum(root.right)
   return root.value + leftSum + rightSum
 }
 
+
+// get the maximum value of the tree
+function treeMax(root) {
+  if (root === null) return 0;
+
+  const leftMax = treeMax(root.left)
+  const rightMax = treeMax(root.right)
+  return Math.max(root.value, leftMax, rightMax)
+}
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(sumTree(tree));
+console.log(treeMax(tree));
 
 // search an element from a tree
 
