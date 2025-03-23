@@ -150,11 +150,19 @@ function preOrder(root, result = []) {
   return result
 }
 
+// post-order: left -> right -> node
+function postOrder(root, result = []) {
+  if (root === null) return null;
+  postOrder(root.left, result);
+  postOrder(root.right, result);
+  result.push(root.value);
+  return result
+}
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
 console.log(tree)
-console.log(preOrder(tree));
+console.log(postOrder(tree));
 
-// post-order: left -> right -> node
 
 // by level
 
