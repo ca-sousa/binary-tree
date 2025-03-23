@@ -95,15 +95,21 @@ function treeHeight(root) {
   const rightHeight = treeHeight(root.right)
   return 1 + Math.max(leftHeight, rightHeight)
 }
-const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(treeHeight(tree));
 
-// search an element from a tree
+// find if an element exist on tree
+function elementExistsInTree(root, value) {
+  if (root === null) return false;
+  const inLeft = elementExistsInTree(root.left, value)
+  const inRight = elementExistsInTree(root.right, value)
+  return root.value === value || inLeft || inRight
+}
+
+const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
+console.log(elementExistsInTree(tree, 12));
+
+
 
 // travesse de um elemento - BFS
 
-// encontrando altura da árvore
-
-// nível da árvore
 
 
