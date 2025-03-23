@@ -65,9 +65,28 @@ function remove(root, value) {
 }
 
 // to erase a tree completely 
-function eraseTree (root) {
+function eraseTree(root) {
   root = null
 }
 
+// sum all tree elements
+function sumTree(root) {
+  if (root === null) return 0;
+
+  const leftSum = sumTree(root.left)
+  const rightSum = sumTree(root.right)
+  return root.value + leftSum + rightSum
+}
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
-console.log(eraseTree(tree));
+console.log(sumTree(tree));
+
+// search an element from a tree
+
+// travesse de um elemento - BFS
+
+// encontrando altura da árvore
+
+// nível da árvore
+
+// tamanho dela inteira 
