@@ -141,10 +141,18 @@ function inOrder(root, result = []) {
   return result
 }
 
+// pre-order: node -> left -> right
+function preOrder(root, result = []) {
+  if (root === null) return null;
+  result.push(root.value);
+  preOrder(root.left, result);
+  preOrder(root.right, result);
+  return result
+}
+
 const tree = buildTree([10, 5, 15, 3, 7, 12, 18]);
 console.log(tree)
-console.log(inOrder(tree));
-// pre-order: node -> left -> right
+console.log(preOrder(tree));
 
 // post-order: left -> right -> node
 
